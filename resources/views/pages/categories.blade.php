@@ -2,117 +2,49 @@
 
 @section('cate')
 
-
-<div class="w-full xl:w-10/12   px-4 mx-auto mt-8">
-        <div class="rounded-t mb-0 px-4 py-3 border-0 bg-[#8b5e34] ">
-            <div class="flex flex-wrap items-center text-white ">
-                <div class="relative  w-full px-4 max-w-full flex-grow flex-1">
-                    <h3 class="font-bold text-base text-blueGray-700">Categories</h3>
-                </div>
-                <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                    <span data-modal-target="crud-modal" data-modal-toggle="crud-modal">
-                        <a href="#" id="add-button"
-                            class="bg-[#ffedd8]  text-black  text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                            type="button">Ajouter</a>
-                    </span>
-                </div>
+<div class="w-full xl:w-10/12 px-4 mx-auto mt-8">
+    <div class="rounded-t mb-0 px-4 py-3 border-0 bg-[#8b5e34] ">
+        <div class="flex flex-wrap items-center text-white ">
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                <h3 class="font-bold text-base text-blueGray-700">Categories</h3>
+            </div>
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                <span data-modal-target="crud-modal" data-modal-toggle="crud-modal">
+                    <a href="#" id="add-button"
+                        class="bg-[#ffedd8] text-black text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        type="button">Ajouter</a>
+                </span>
             </div>
         </div>
-    
-  
-
-
-
-
-<div class="relative flex  flex-col justify-center overflow-hidden bg-gray- py-6 sm:py-12">
-    <div class="mx-auto max-w-screen-xl px-4 w-full">
-      <div class="grid w-full sm:grid-cols-2 xl:grid-cols-4 gap-6">
-
-        
-        <div class="relative flex flex-col shadow-md rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-sm">
-           
-            <a href="" class="z-20 absolute h-full w-full top-0 left-0 ">&nbsp;</a>
-            <div class="h-auto overflow-hidden">
-              <div class="h-44 overflow-hidden relative">
-                <img src="https://picsum.photos/400/400" alt="">
-              </div>
-            </div>
-            <div class="bg-white py-4 px-3">
-              <h3 class="text-xs mb-2 font-medium">Des cadeaux incroyables prêts à être utilisés dans votre prochain projet</h3>
-              <div class="flex justify-between items-center">
-                <p class="text-xs text-gray-400">
-                Lorem, ipsum dolor sit amet
-              </p>
-             
-              </div>
-            </div>
-          </div>
-          
-       
-        
-       
-    
-        
-        <div class="relative flex flex-col shadow-md rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-sm">
-         
-          <a href="" class="z-20 absolute h-full w-full top-0 left-0 ">&nbsp;</a>
-          <div class="h-auto overflow-hidden">
-            <div class="h-44 overflow-hidden relative">
-              <img src="https://picsum.photos/400/400" alt="">
-            </div>
-          </div>
-          <div class="bg-white py-4 px-3">
-            <h3 class="text-xs mb-2 font-medium">Des cadeaux incroyables prêts à être utilisés dans votre prochain projet</h3>
-            <div class="flex justify-between items-center">
-              <p class="text-xs text-gray-400">
-              Lorem, ipsum dolor sit amet
-            </p>
-           
-            </div>
-          </div>
-        </div>
-        <div class="relative flex flex-col shadow-md rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-sm">
-         
-          <a href="" class="z-20 absolute h-full w-full top-0 left-0 ">&nbsp;</a>
-          <div class="h-auto overflow-hidden">
-            <div class="h-44 overflow-hidden relative">
-              <img src="https://picsum.photos/400/400" alt="">
-            </div>
-          </div>
-          <div class="bg-white py-4 px-3">
-            <h3 class="text-xs mb-2 font-medium">Des cadeaux incroyables prêts à être utilisés dans votre prochain projet</h3>
-            <div class="flex justify-between items-center">
-              <p class="text-xs text-gray-400">
-              Lorem, ipsum dolor sit amet
-            </p>
-           
-            </div>
-          </div>
-        </div>
-        <div class="relative flex flex-col shadow-md rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-sm">
-         
-          <a href="" class="z-20 absolute h-full w-full top-0 left-0 ">&nbsp;</a>
-          <div class="h-auto overflow-hidden">
-            <div class="h-44 overflow-hidden relative">
-              <img src="https://picsum.photos/400/400" alt="">
-            </div>
-          </div>
-          <div class="bg-white py-4 px-3">
-            <h3 class="text-xs mb-2 font-medium">Des cadeaux incroyables prêts à être utilisés dans votre prochain projet</h3>
-            <div class="flex justify-between items-center">
-              <p class="text-xs text-gray-400">
-              Lorem, ipsum dolor sit amet
-            </p>
-           
-            </div>
-          </div>
-        </div>
-       
-        
-        
-      </div>
     </div>
-  </div>
+
+    <div class="mx-auto max-w-screen-xl px-4 w-full mt-12 mb-12">
+        <div class="grid w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            @foreach ($categorie as $cate)
+            <div class="relative flex flex-col shadow-md rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 max-w-sm">
+                <a href="" class="z-20 absolute h-full w-full top-0 left-0 "></a>
+                <div class="h-auto overflow-hidden">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="{{ asset('storage/photos/' . $cate->picture) }}" alt="{{ $cate->nomCategorie }}">
+                    </div>
+                </div>
+                <div class="bg-white py-4 px-3">
+                    <h1 class="text-3xl text-black text-center mb-2 font-bold">{{ $cate->nomCategorie }}</h1>
+                    <div class="flex justify-between">
+                        <a href="{{ route('categories.edit', $cate) }}" class="text-blue-500 hover:text-blue-700">Edit</a>
+                        <form action="{{ route('categories.delete', $cate) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+    
+
 
 <!-- pop out form  -->
 
@@ -137,7 +69,7 @@
                 </button>
             </div>
 
-            <form action="{{route('categories.save')}}" method="POST" class="p-4 md:p-5">
+            <form action="{{route('categories.save')}}" method="POST" enctype="multipart/form-data" class="p-4 md:p-5">
                 @csrf
                 @method('post')
                 <div class="grid gap-4 mb-4 grid-cols-2">
@@ -165,7 +97,7 @@
                                 <p class="pointer-none text-gray-500 "><span class="text-sm">Drag and drop</span> Or select files
                                   </p>
                             </div>
-                            <input name="logo" type="file" class="hidden">
+                            <input id="picture" name="picture" type="file" class="hidden">
                         </label>
                     </div>
 

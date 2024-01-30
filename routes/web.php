@@ -18,24 +18,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+/********************************HOME*****************************************/
+
 Route::get('/',[homeController::class,'index'] );
 
+/********************************CATEGORIES*****************************************/
+
 Route::get('/categories',[CategoriesController::class,'index'])->name('categories.index');
-//create
+
+//create categories
 Route::get('/categories/create',[CategoriesController::class,'create'])->name('categories.create');
 Route::post('/categories',[CategoriesController::class,'save'])->name('categories.save');
-//update
 
+//update categories
 Route::get('/categories/{categorie}/edit',[CategoriesController::class,'edit'])->name('categories.edit');
 Route::put('/categories/{categorie}/update',[CategoriesController::class,'update'])->name('categories.update');
 
-//delete
+//delete categories
 Route::delete('/categories/{categorie}/delete',[CategoriesController::class,'delete'])->name('categories.delete');
 
+/************************************RECETTES****************************************/
 
 Route::get('/recettes',[RecettesController::class,'index'] );
 
+//create recettes
+Route::get('/recettes',[RecettesController::class,'index'])->name('recettes.index');
+Route::post('/recettes/create',[RecettesController::class,'index'])->name('recettes.create');
 
+//update recettes
+Route::get('/recettes/edit',[RecettesController::class,'edit'])->name('recettes.edit');
+Route::put('/recettes/update',[RecettesController::class,'update'])->name('recettes.update');
+
+//delete categories
+Route::delete('/recettes/delete',[RecettesController::class,'delete'])->name('recettes.delete'); 
 
 
 
