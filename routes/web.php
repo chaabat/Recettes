@@ -33,6 +33,10 @@ Route::put('/categories/{categorie}/update',[CategoriesController::class,'update
 Route::delete('/categories/{categorie}/delete',[CategoriesController::class,'delete'])->name('categories.delete');
 
 
+Route::get('/recettes',[RecettesController::class,'index'] );
+
+
+
 
 
 

@@ -5,7 +5,7 @@
 <!-- component -->
 
 <div class="w-full h-screen overflow-hidden relative before:block before:absolute before:bg-black before:h-full before:w-full before:top-0 before:left-0 before:z-10 before:opacity-30">
-    <img src="https://picsum.photos/seed/picsum/1900/850" class="absolute top-0 left-0 min-h-full ob" alt="">
+    <img src="https://wallpapercave.com/dwp1x/wp10761300.jpg" class="absolute top-0 left-0 min-h-full ob w-full" alt="">
     <div class="relative z-20 max-w-screen-lg mx-auto grid grid-cols-12 h-full items-center">
       <div class="col-span-6">
         <span class="uppercase text-white text-xs font-bold mb-2 block">WE ARE EXPERTS</span>
@@ -20,10 +20,9 @@
   <div class="bg-[#f7d0b6] py-20">
     <div class="max-w-screen-lg mx-auto flex justify-between items-center">
       <div class="max-w-xl">
-          <h2 class="font-black text-sky-950 text-3xl mb-4">As the leading experts in this field, we're in over 90 countries</h2>
-        <p class="text-base text-sky-950">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h2 class="font-black text-sky-950 text-3xl mb-4">En explorant ces recettes 100% marocaines, on découvre un univers de délices culinaires qui célèbrent la diversité et l'authenticité de cette cuisine envoûtante.</h2>
       </div>
-      <img src="" alt="">   
+      <img src="{{ asset('photos/ma.png') }}" alt="">
     </div>
   </div>
 

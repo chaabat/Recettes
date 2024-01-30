@@ -1,5 +1,5 @@
 <!-- component -->
-<nav class=" bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20">
+<nav class=" bg-[#8b5e34] w-full flex relative justify-between items-center mx-auto px-8 h-20">
     <!-- logo -->
     <div class="inline-flex">
         <a class="_o6689fn" href="/"
@@ -59,13 +59,13 @@
       <div class="flex justify-end items-center relative">
        
         <div class="flex mr-4 items-center">
-          <a class="inline-block py-2 px-3 hover:bg-gray-200 rounded-full" href="#">
+          <a class="inline-block py-2 px-3 hover:bg-gray-200 rounded-full" href="/">
             <div class="flex items-center relative cursor-pointer whitespace-nowrap">Home</div>
           </a>
-          <a class="inline-block py-2 px-3 hover:bg-gray-200 rounded-full" href="#">
+          <a class="inline-block py-2 px-3 hover:bg-gray-200 rounded-full" href="recettes">
             <div class="flex items-center relative cursor-pointer whitespace-nowrap">Recettes</div>
           </a>
-          <a class="inline-block py-2 px-3 hover:bg-gray-200 rounded-full" href="#">
+          <a class="inline-block py-2 px-3 hover:bg-gray-200 rounded-full" href="categories">
             <div class="flex items-center relative cursor-pointer whitespace-nowrap">Categories</div>
           </a>
         
