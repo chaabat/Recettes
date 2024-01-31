@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+      {{-- <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
         
         @foreach ($recettes as $recette)
         <div class="bg-white rounded-lg border p-4">
@@ -48,9 +48,50 @@
     @endforeach
     
         
-      </div>
+      </div> --}}
+
+      <div class="flex min-h-screen items-center justify-center flex-wrap">
+        @foreach ($recettes as $recette)
+            <div class="relative flex w-full max-w-[80%] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mb-8">
+                <div class="relative m-0 w-1/2 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
+                    <img src="{{ asset('storage/photos/' . $recette->picture) }}" alt="{{ $recette->nomRecettes }}" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 w-1/2 flex flex-col justify-between">
+                    <div>
+                        <h6 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
+                            {{-- {{ $categories->nomCategorie }}    --}}
+                          </h6>
+                        <h4 class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                            {{ $recette->nomRecettes }}
+                        </h4>
+                        <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
+                            {{ $recette->description }}
+                        </p>
+                    </div>
+                    <div class="flex justify-between">
+                        <span data-modal-target="crud-modal-update" data-modal-toggle="crud-modal-update" data-category-id="{{ $recette->recettes }}">
+                            <a href="#" class="text-blue-500 hover:text-blue-700 edit-category">Edit</a>
+                        </span>
+                        <form action="{{ route('recettes.delete', ['recette' => $recette->id]) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </div>
+    
+    
+    
+ 
   </div>
+
+  
+    
+
+    
 
 <!-- pop out form  -->
 
@@ -88,7 +129,7 @@
                     <div class="col-span-2">
                         <label for="name"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Description</label>
-                        <textarea cols="300" rows="100"   name="description" id="description"
+                        <textarea cols="30" rows="10"   name="description" id="description"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             </textarea>
                     </div>
