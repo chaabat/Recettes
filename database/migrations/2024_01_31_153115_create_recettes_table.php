@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('recettes', function (Blueprint $table) {
             $table->id();
             $table->string('nomRecettes');
-            $table->string('description');
+            $table->text('description');
             $table->string('picture')->nullable();
-            $table->foreignId('categorie_id')->constrained();
+            $table->foreignId('categorie_id')
+                  ->constrained()
+                  ->onDelete('cascade'); 
             $table->timestamps();
         });
     }
