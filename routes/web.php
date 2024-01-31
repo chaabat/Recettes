@@ -54,7 +54,7 @@ Route::get('/recettes/edit',[RecettesController::class,'edit'])->name('recettes.
 Route::put('/recettes/update',[RecettesController::class,'update'])->name('recettes.update');
 
 //delete categories
-Route::delete('/recettes/delete',[RecettesController::class,'delete'])->name('recettes.delete'); 
+Route::delete('/recettes/{recette}/delete',[RecettesController::class,'delete'])->name('recettes.delete'); 
 
 
 
