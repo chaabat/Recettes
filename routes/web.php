@@ -38,13 +38,16 @@ Route::put('/categories/{categorie}/update',[CategoriesController::class,'update
 //delete categories
 Route::delete('/categories/{categorie}/delete',[CategoriesController::class,'delete'])->name('categories.delete');
 
+
 /************************************RECETTES****************************************/
 
 Route::get('/recettes',[RecettesController::class,'index'] );
 
 //create recettes
 Route::get('/recettes',[RecettesController::class,'index'])->name('recettes.index');
-Route::post('/recettes/create',[RecettesController::class,'index'])->name('recettes.create');
+Route::get('/recettes/create',[RecettesController::class,'index'])->name('recettes.create');
+Route::post('/recettes',[RecettesController::class,'save'])->name('recettes.save');
+
 
 //update recettes
 Route::get('/recettes/edit',[RecettesController::class,'edit'])->name('recettes.edit');

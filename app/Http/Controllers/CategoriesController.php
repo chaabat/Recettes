@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoriesController extends Controller
 {
@@ -21,21 +22,21 @@ class CategoriesController extends Controller
 
    public function save(Request $request)
    {
-       // Validate the request
+       
        $request->validate([
            'nomCategorie' => ['required', 'min:3'],
            'picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-           // other validation rules
+           
        ]);
    
-       // Store the picture
+       
        if ($request->hasFile('picture')) {
            $pictureName = time() . '.' . $request->picture->extension();
-           $request->picture->storeAs('public/photos', $pictureName); // Store in storage/app/public/photos
+           $request->picture->storeAs('public/photos', $pictureName); 
            $data['picture'] = $pictureName;
        }
    
-       // Save the category data
+       
        $data['nomCategorie'] = $request->nomCategorie;
        Categorie::create($data);
    
@@ -50,41 +51,47 @@ class CategoriesController extends Controller
       return view('pages.categories',['categorie' =>$categorie]);
    }
 
-   public function update(Categorie $categorie,Request $request){
-      $data = $request->validate([
-         'nomCategorie' =>['required','min:3']
-      ]);
-    $categorie->update($data);
-    return redirect(route('categories.index'));
-     
+   public function update(Categorie $categorie, Request $request)
+   {
+       // Validate the request data
+       $data = $request->validate([
+           'nomCategorie' => ['required', 'min:3'],
+           'picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+       ]);
+   
+       // Retrieve the old picture
+       $oldPicture = $categorie->picture;
+   
+       // Store the new picture if provided
+       if ($request->hasFile('picture')) {
+           $pictureName = time() . '.' . $request->picture->extension();
+           $request->picture->storeAs('public/photos', $pictureName); 
+           $data['picture'] = $pictureName;
+       }
+   
+       // Update the category with the new data
+       $categorie->update($data);
+   
+       // Delete the old picture if a new one was uploaded
+       if ($request->hasFile('picture')) {
+           Storage::delete('public/photos/' . $oldPicture);
+       }
+   
+       // Redirect back to the index page
+       return redirect()->route('categories.index');
    }
-
-   public function delete(Categorie $categorie){
-$categorie->delete();
-    return redirect(route('categories.index'));
-   }
+   
 
 
+   public function delete(Categorie $categorie)
+{
+    $categorie->delete();
+    return redirect()->route('categories.index')->with('success', 'Category deleted successfully!');
+   
 
-//    public function store(Request $request)
-// {
-//     // Validate the request
-//     $request->validate([
-//         'picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-//         // other validation rules
-//     ]);
+}
 
-//     // Store the picture
-//     if ($request->hasFile('picture')) {
-//         $pictureName = time() . '.' . $request->picture->extension();
-//         $request->picture->storeAs('public/photos', $pictureName);
-//         $data['picture'] = $pictureName;
-//     }
 
-//     // Create new record in the database
-//     Categorie::create($data);
 
-//     return redirect()->route('route.name')->with('success', 'Record created successfully!');
-// }
 
 }
