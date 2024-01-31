@@ -14,27 +14,36 @@ class RecettesController extends Controller
         return view('pages.recettes',['recettes'=> $recettes, 'categories'=> $categories]);
        }
 
-       public function save(Request $request){
-        $data = $request->validate([
-           'nomRecettes' => ['required', 'min:3'],
-           'picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-           'description' => ['required', 'min:10'],
-           'categorie_id' => ['required', 'numeric']
+       public function create(){
+        return view('pages.recettes');
+     }
+       
+public function save(Request $request)
+{
+    $request->validate([
+        'nomRecettes' => ['required', 'min:3'],
+        'description' => ['required', 'min:10'],
+        'categorie_id' => ['required', 'numeric'],
+        'picture' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+    ]);
 
-        ]);
-        
-       if ($request->hasFile('picture')) {
-        $pictureName = time() . '.' . $request->picture->extension();
-        $request->picture->storeAs('public/photos', $pictureName); 
+    $data = [
+        'nomRecettes' => $request->input('nomRecettes'),
+        'description' => $request->input('description'),
+        'categorie_id' => $request->input('categorie_id'),
+    ];
+
+    // Check if a picture file was uploaded
+    if ($request->hasFile('picture')) {
+        $pictureName = time() . '.' . $request->file('picture')->getClientOriginalExtension();
+        $request->file('picture')->storeAs('public/photos', $pictureName);
         $data['picture'] = $pictureName;
     }
-
-    
-    $data['nomRecettes'] = $request->nomRecettes;
+    // dd($request->all());
     Recettes::create($data);
 
-    return redirect()->route('recettes.index')->with('success', 'recettes created successfully!');
-       }
+    return redirect()->route('recettes.index')->with('success', 'Recette created successfully!');
+}
 
        public function edit(recettes $recettes){
         return view('pages.recettes',['recettes' =>$recettes]);
