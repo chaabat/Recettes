@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class CategoriesController extends Controller
 {
    public function index(){
+      
       $categorie = Categorie::all();
     return view('pages.categories',['categorie' =>$categorie]);
    }
