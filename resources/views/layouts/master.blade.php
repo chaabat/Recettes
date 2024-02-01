@@ -15,7 +15,11 @@
     @yield('main')
     @yield('cate')
     @yield('recettes') 
-    @yield('updateCat')
+    @yield('updateCat') 
+
+     
+
+  
 
 
 

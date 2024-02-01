@@ -30,9 +30,11 @@
                 <div class="bg-white py-4 px-3">
                     <h1 class="text-3xl text-black text-center mb-2 font-bold">{{ $cate->nomCategorie }}</h1>
                     <div class="flex justify-between">
+                        
                         <span data-modal-target="crud-modal-update" data-modal-toggle="crud-modal-update">
-                            <a href="#" class="text-blue-500 hover:text-blue-700 edit-category">Edit</a>
+                            <a href="{{$cate->id}}" class="text-blue-500 hover:text-blue-700 edit-category">Edit</a>
                         </span>
+                        
                         <form action="{{ route('categories.delete', ['categorie'=>$cate]) }}" method="POST">
                             @csrf
                             @method('delete')
@@ -115,7 +117,7 @@
 </div>
 
 {{-- UPDATE --}}
-<div id="crud-modal-update" tabindex="-1" aria-hidden="true"
+{{-- <div id="crud-modal-update" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-md max-h-full">
 
@@ -162,7 +164,7 @@
             
         </div>
     </div>
-</div>
+</div> --}}
 
 
 

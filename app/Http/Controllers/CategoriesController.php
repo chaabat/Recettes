@@ -14,6 +14,12 @@ class CategoriesController extends Controller
     return view('pages.categories',['categorie' =>$categorie]);
    }
 
+   public function updatecat(){
+      
+    $categorie = Categorie::all();
+  return view('pages.updateCat',['categorie' =>$categorie]);
+ }
+
 
 
 

@@ -23,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[homeController::class,'index'] );
 
+Route::get('/updateCat', [CategoriesController::class, 'updatecat']);
+
+
 /********************************CATEGORIES*****************************************/
 
 Route::get('/categories',[CategoriesController::class,'index'])->name('categories.index');
