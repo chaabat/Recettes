@@ -12,15 +12,16 @@
             </div>
             <div class="p-6 w-1/2 flex flex-col justify-between">
                 <div>
+                    <h6 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
+                        Categorie : {{ $recette->category->nomCategorie }}   
+                      </h6>
                     <h4 class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                         {{ $recette->nomRecettes }}
                     </h4>
                     <p class="mb-2 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                         {{ $recette->description }}
                     </p>
-                    {{-- <p class="mb-4 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-                        Category: {{ $recette->categorie->nomCategorie }}
-                    </p> --}}
+                   
                 </div>
                 <div class="flex justify-between">
                     <span data-modal-target="crud-modal-update" data-modal-toggle="crud-modal-update">

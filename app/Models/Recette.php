@@ -14,4 +14,11 @@ class Recette extends Model
        'description',
        'categorie_id'
     ];
+
+
+    public function category()
+    {
+        return $this->belongsTo(Categorie::class, 'categorie_id');
+    }
+    
 }

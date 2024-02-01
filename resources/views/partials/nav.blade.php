@@ -1,8 +1,8 @@
 <!-- component -->
 <nav class=" bg-[#8b5e34] w-full flex relative justify-between items-center mx-auto px-8 h-20">
     <!-- logo -->
-    <div class="">
-        <img {{ asset('photos/logo.jpg') }} class="h-16 w-8" alt="">
+    <div class="h-18 w-8">
+        <img {{ asset('photos/logo.jpg') }}  alt="">
 
     </div>
 
@@ -11,13 +11,15 @@
     <!-- search bar -->
     <div class="hidden sm:block flex-shrink flex-grow-0 justify-start px-2">
         <div class="inline-block">
-            <form action="/search" method="GET">
-                            <input type="text"  name="results" placeholder="Search Recettes... "  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            
-                <button type="submit">Search</button>
+            <form action="/search" method="GET" class="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+                <input type="text" name="results" placeholder="Search Recettes..." class="bg-gray-50 text-gray-900 text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-600 flex-grow" />
+                <button type="submit" class="bg-primary-600 text-white px-4 py-2 hover:bg-primary-700 transition-colors duration-300">Search</button>
             </form>
         </div>
     </div>
+    
+
+
     <!-- end search bar -->
 
     <!-- login -->

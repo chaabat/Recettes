@@ -59,7 +59,7 @@
                 <div class="p-6 w-1/2 flex flex-col justify-between">
                     <div>
                         <h6 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
-                            {{-- {{ $categories->nomCategorie }}    --}}
+                            Categorie : {{ $recette->category->nomCategorie }}   
                           </h6>
                         <h4 class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                             {{ $recette->nomRecettes }}

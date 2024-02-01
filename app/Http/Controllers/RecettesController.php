@@ -89,12 +89,15 @@ class RecettesController extends Controller
         
         $recettes = Recette::where('nomRecettes', 'like', "%$results%")
                             ->orWhere('description', 'like', "%$results%")
-                            ->orWhere('categorie_id', 'like', "%$results%")
+                            ->orWhereHas('category', function ($query) use ($results) {
+                                $query->where('nomCategorie', 'like', "%$results%");
+                            })
                             ->get();
         
         $categories = Categorie::all();
         
         return view('pages.search', compact('recettes', 'results', 'categories'));
     }
+    
     
 }
