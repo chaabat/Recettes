@@ -60,7 +60,7 @@ Route::put('/updateRec/{recette}/update',[RecettesController::class,'update'])->
 Route::delete('/recettes/{recette}/delete',[RecettesController::class,'delete'])->name('recettes.delete'); 
 // routes/web.php
 
-Route::get('/recettes/search', [RecettesController::class,'search'])->name('recettes.search');
+Route::get('/search', [RecettesController::class,'search'])->name('recettes.search');
 
 
 

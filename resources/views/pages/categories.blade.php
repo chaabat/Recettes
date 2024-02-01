@@ -32,14 +32,14 @@
                     <div class="flex justify-between">
                         
                         <span data-modal-target="crud-modal-update" data-modal-toggle="crud-modal-update">
-                            <a href="{{route('categories.edit', ['categorie'=>$cate])}}" class="text-blue-500 hover:text-blue-700 edit-category">Edit</a>
+                            <a href="{{route('categories.edit', ['categorie'=>$cate])}}" class="text-blue-500 hover:text-blue-700 edit-category"><img src="{{ asset('photos/editer.png') }}" class="h-8 w-8"></a>
                         </span>
                         
                         
                         <form action="{{ route('categories.delete', ['categorie'=>$cate]) }}" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
+                            <button type="submit" class="text-red-500 hover:text-red-700"><img src="{{ asset('photos/supprimer.png') }}" class="h-8 w-8"></button>
                         </form>
                     </div>
                 </div>

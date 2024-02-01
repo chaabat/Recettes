@@ -28,23 +28,24 @@ class RecettesController extends Controller
     }
 
     public function save(Request $request){
-        $data = $request->validate([
-            'nomRecettes' => ['required', 'min:3'],
-            'picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'description' => ['required', 'min:10'],
-            'categorie_id' => ['required', 'numeric']
-        ]);
-        
-        if ($request->hasFile('picture')) {
-            $pictureName = time() . '.' . $request->picture->extension();
-            $request->picture->storeAs('public/photos', $pictureName); 
-            $data['picture'] = $pictureName;
-        }
-
-        Recette::create($data);
-
-        return redirect()->route('recettes.index')->with('success', 'Recette created successfully!');
-    }
+      $data = $request->validate([
+          'nomRecettes' => ['required', 'min:3'],
+          'picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+          'description' => ['required', 'min:10'],
+          'categorie_id' => ['required', 'numeric']
+      ]);
+      
+      if ($request->hasFile('picture')) {
+          $pictureName = time() . '.' . $request->picture->extension();
+          $request->picture->storeAs('public/photos', $pictureName); 
+          $data['picture'] = $pictureName;
+      }
+  
+      Recette::create($data);
+  
+      return redirect()->route('recettes.index');
+  }
+  
 
  
 
@@ -83,13 +84,17 @@ class RecettesController extends Controller
 
 
     public function search(Request $request)
-{
-    $query = $request->input('query');
+    {
+        $results = $request->input('results');
+        
+        $recettes = Recette::where('nomRecettes', 'like', "%$results%")
+                            ->orWhere('description', 'like', "%$results%")
+                            ->orWhere('categorie_id', 'like', "%$results%")
+                            ->get();
+        
+        $categories = Categorie::all();
+        
+        return view('pages.search', compact('recettes', 'results', 'categories'));
+    }
     
-    $recettes = Recette::where('nomRecettes', 'like', "%$query%")
-                        ->orWhere('description', 'like', "%$query%")
-                        ->get();
-    
-    return view('recettes.search', compact('recettes', 'query'));
-}
 }
