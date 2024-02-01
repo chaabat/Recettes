@@ -32,8 +32,9 @@
                     <div class="flex justify-between">
                         
                         <span data-modal-target="crud-modal-update" data-modal-toggle="crud-modal-update">
-                            <a href="{{$cate->id}}" class="text-blue-500 hover:text-blue-700 edit-category">Edit</a>
+                            <a href="{{route('categories.edit', ['categorie'=>$cate])}}" class="text-blue-500 hover:text-blue-700 edit-category">Edit</a>
                         </span>
+                        
                         
                         <form action="{{ route('categories.delete', ['categorie'=>$cate]) }}" method="POST">
                             @csrf

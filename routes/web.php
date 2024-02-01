@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[homeController::class,'index'] );
 
-Route::get('/updateCat', [CategoriesController::class, 'updatecat']);
+// Route::get('/updateCat', [CategoriesController::class, 'updatecat']);
 
 
 /********************************CATEGORIES*****************************************/
@@ -35,8 +35,8 @@ Route::get('/categories/create',[CategoriesController::class,'create'])->name('c
 Route::post('/categories',[CategoriesController::class,'save'])->name('categories.save');
 
 //update categories
-Route::get('/categories/{categorie}/edit',[CategoriesController::class,'edit'])->name('categories.edit');
-Route::put('/categories/{categorie}/update',[CategoriesController::class,'update'])->name('categories.update');
+Route::get('/updateCat/{categorie}/edit',[CategoriesController::class,'edit'])->name('categories.edit');
+Route::put('/updateCat/{categorie}/update',[CategoriesController::class,'update'])->name('categories.update');
 
 //delete categories
 Route::delete('/categories/{categorie}/delete',[CategoriesController::class,'delete'])->name('categories.delete');
