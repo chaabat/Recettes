@@ -53,11 +53,14 @@ Route::post('/recettes',[RecettesController::class,'save'])->name('recettes.save
 
 
 //update recettes
-Route::get('/recettes/edit',[RecettesController::class,'edit'])->name('recettes.edit');
-Route::put('/recettes/update',[RecettesController::class,'update'])->name('recettes.update');
+Route::get('/updateRec/{recette}/edit',[RecettesController::class,'edit'])->name('recettes.edit');
+Route::put('/updateRec/{recette}/update',[RecettesController::class,'update'])->name('recettes.update');
 
 //delete categories
 Route::delete('/recettes/{recette}/delete',[RecettesController::class,'delete'])->name('recettes.delete'); 
+// routes/web.php
+
+Route::get('/recettes/search', [RecettesController::class,'search'])->name('recettes.search');
 
 
 

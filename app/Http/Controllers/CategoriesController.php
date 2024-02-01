@@ -15,15 +15,6 @@ class CategoriesController extends Controller
         return view('pages.categories', ['categorie' => $categorie]);
     }
 
-    public function updatecat()
-    {
-
-        $categorie = Categorie::all();
-        return view('pages.updateCat', ['categorie' => $categorie]);
-    }
-
-
-
 
     public function create()
     {
@@ -64,31 +55,25 @@ class CategoriesController extends Controller
 
     public function update(Categorie $categorie, Request $request)
     {
-        // Validate the request data
         $data = $request->validate([
             'nomCategorie' => ['required', 'min:3'],
             'picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Retrieve the old picture
         $oldPicture = $categorie->picture;
 
-        // Store the new picture if provided
         if ($request->hasFile('picture')) {
             $pictureName = time() . '.' . $request->picture->extension();
             $request->picture->storeAs('public/photos', $pictureName);
             $data['picture'] = $pictureName;
         }
 
-        // Update the category with the new data
         $categorie->update($data);
 
-        // Delete the old picture if a new one was uploaded
         if ($request->hasFile('picture')) {
             Storage::delete('public/photos/' . $oldPicture);
         }
 
-        // Redirect back to the index page
         return redirect()->route('categories.index');
     }
 

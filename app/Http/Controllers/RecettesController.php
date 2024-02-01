@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Categorie;
 use App\Models\Recette;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class RecettesController extends Controller
 {
@@ -14,8 +16,15 @@ class RecettesController extends Controller
         return view('pages.recettes',['recettes'=> $recettes, 'categories'=> $categories]);
     }
 
+   //  public function updateRec()
+   //  {
+
+   //      $recette = Recette::all();
+   //      return view('pages.updateRec', ['recette' => $recette]);
+   //  }
+
     public function create(){
-        return view('pages.create_recette'); // Assuming you have a blade file for creating recettes
+        return view('pages.index'); 
     }
 
     public function save(Request $request){
@@ -37,9 +46,13 @@ class RecettesController extends Controller
         return redirect()->route('recettes.index')->with('success', 'Recette created successfully!');
     }
 
+ 
+
     public function edit(Recette $recette){
-        return view('pages.edit_recette',['recette' =>$recette]); // Assuming you have a blade file for editing recettes
+        $categories = Categorie::all();
+        return view('pages.updateRec', ['recette' => $recette, 'categories' => $categories]); 
     }
+    
   
     public function update(Recette $recette, Request $request){
         $data = $request->validate([
@@ -48,6 +61,7 @@ class RecettesController extends Controller
             'description' => ['required', 'min:10'],
             'categorie_id' => ['required', 'numeric']
         ]);
+        $oldPicture = $recette->picture;
 
         if ($request->hasFile('picture')) {
             $pictureName = time() . '.' . $request->picture->extension();
@@ -56,6 +70,9 @@ class RecettesController extends Controller
         }
 
         $recette->update($data);
+        if ($request->hasFile('picture')) {
+         Storage::delete('public/photos/' . $oldPicture);
+     }
         return redirect()->route('recettes.index')->with('success', 'Recette updated successfully!');
     }
 
@@ -63,4 +80,16 @@ class RecettesController extends Controller
         $recette->delete();
         return redirect()->route('recettes.index')->with('success', 'Recette deleted successfully!');
     }
+
+
+    public function search(Request $request)
+{
+    $query = $request->input('query');
+    
+    $recettes = Recette::where('nomRecettes', 'like', "%$query%")
+                        ->orWhere('description', 'like', "%$query%")
+                        ->get();
+    
+    return view('recettes.search', compact('recettes', 'query'));
+}
 }

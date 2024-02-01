@@ -16,18 +16,9 @@
     @yield('cate')
     @yield('recettes') 
     @yield('updateCat') 
-
-     
-
-  
-
-
-
-
+    @yield('updateRec') 
 </main>
 
             @include('partials.footer')
-          
-        
     </body>
     </html>

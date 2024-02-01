@@ -2,9 +2,9 @@
 
 @section('updateCat')
 
-<!-- component -->
-{{-- @if ($categorie->isNotEmpty()) --}}
-    <div class="flex min-h-screen items-center justify-center bg-white dark:bg-gray-950 p-12">
+
+<div class="flex min-h-screen items-center justify-center bg-[#ffedd8] dark:bg-gray-950 p-12" style="width: 80%; margin-left: auto; margin-right: auto;">
+
         <form action="{{ route('categories.update', ['categorie' => $categorie]) }}" method="post" enctype="multipart/form-data" class="p-4 md:p-5">
             @csrf
             @method('put')
@@ -18,7 +18,7 @@
                     <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center">
                         <div class="h-full w-full text-center flex flex-col items-center justify-center items-center">
                             <div class="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
-                                <img class="has-mask h-36 object-center" src="{{ asset('storage/photos/' . $categorie->picture) }}" alt="{{ $categorie->nomCategorie }}">
+                                <img class="has-mask h-36 w-object-center" src="{{ asset('storage/photos/' . $categorie->picture) }}" alt="{{ $categorie->nomCategorie }}">
                             </div>
                             <p class="pointer-none text-gray-500 "><span class="text-sm">Drag and drop</span> Or select files</p>
                         </div>
@@ -26,9 +26,8 @@
                     </label>
                 </div>
             </div>
-            <input type="submit" value="Update Categorie" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <input type="submit" value="Update Categorie" class="text-white inline-flex items-center bg-[#8b5e34]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
         </form>
     </div>
-{{-- @endif --}}
     
 @endsection
