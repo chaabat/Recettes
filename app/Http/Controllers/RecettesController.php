@@ -100,9 +100,9 @@ class RecettesController extends Controller
     }
     
 
-    public function show( $id)
+    public function show( $recette)
     {
-        $recette = Recette::findOrFail($id);
+        $recette = Recette::findOrFail($recette);
     
         return view('pages.showRec', ['recette' => $recette]);
     }

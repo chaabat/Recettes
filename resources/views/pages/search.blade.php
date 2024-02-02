@@ -40,7 +40,8 @@
                         {{ $recette->nomRecettes }}
                     </h4>
                     <p class="mb-2 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-                        {{ $recette->description }}
+                        {!! nl2br(e($recette->description)) !!}
+
                     </p>
                    
                 </div>

@@ -63,7 +63,7 @@ Route::delete('/recettes/{recette}/delete',[RecettesController::class,'delete'])
 Route::get('/search', [RecettesController::class,'search'])->name('recettes.search');
 
 //details recettes
-Route::get('/showRec/{recette}/show', [RecettesController::class,'show'])->name('recettes.show');
+Route::get('/showRec/{recette}', [RecettesController::class,'show'])->name('recettes.show');
 
 
 
