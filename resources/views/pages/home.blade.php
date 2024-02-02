@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>
-  <div class="bg-[#f7d0b6] py-20">
+  <div class="bg-[#ffedd8] py-20">
     <div class="max-w-screen-lg mx-auto flex justify-between items-center">
       <div class="max-w-xl">
           <h2 class="font-black text-sky-950 text-3xl mb-4">En explorant ces recettes 100% marocaines, on découvre un univers de délices culinaires qui célèbrent la diversité et l'authenticité de cette cuisine envoûtante.</h2>

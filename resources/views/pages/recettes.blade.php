@@ -23,34 +23,9 @@
             </div>
         </div>
     </div>
-      {{-- <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
-        
-        @foreach ($recettes as $recette)
-        <div class="bg-white rounded-lg border p-4">
-            <img src="{{ asset('storage/photos/' . $recette->picture) }}" alt="{{ $recette->nomRecettes }}">
-            <div class="px-1 py-4">
-                <div class="font-bold text-xl mb-2">{{ $recette->nomRecettes }}</div>
-                <div class="font-bold text-xl mb-2">{{ $recette->nomCategorie }}</div>
+   
 
-                <p class="text-gray-700 text-base">{{ $recette->description }}</p>
-                <div class="flex justify-between">
-                    <span data-modal-target="crud-modal-update" data-modal-toggle="crud-modal-update" data-category-id="{{ $recette->recettes }}">
-                        <a href="#" class="text-blue-500 hover:text-blue-700 edit-category">Edit</a>
-                    </span>
-                    <form action="{{ route('recettes.delete', ['recette' => $recette->id]) }}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    @endforeach
-    
-        
-      </div> --}}
-
-      <div class="flex min-h-screen items-center justify-center flex-wrap">
+    <div class="flex min-h-screen items-center justify-center flex-wrap">
         @foreach ($recettes as $recette)
             <div class="relative flex w-full max-w-[80%] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mb-8">
                 <div class="relative m-0 w-1/2 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
@@ -58,14 +33,14 @@
                 </div>
                 <div class="p-6 w-1/2 flex flex-col justify-between">
                     <div>
-                        <h6 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
+                        <h6 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-[#8b5e34] antialiased">
                             Categorie : {{ $recette->category->nomCategorie }}   
-                          </h6>
+                        </h6>
                         <h4 class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                             {{ $recette->nomRecettes }}
                         </h4>
                         <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-                            {{ $recette->description }}
+                            {!! nl2br(e($recette->description)) !!}
                         </p>
                     </div>
                     <div class="flex justify-between">
@@ -82,6 +57,7 @@
             </div>
         @endforeach
     </div>
+    
     
     
     

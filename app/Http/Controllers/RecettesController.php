@@ -99,5 +99,13 @@ class RecettesController extends Controller
         return view('pages.search', compact('recettes', 'results', 'categories'));
     }
     
+
+    public function show( $id)
+    {
+        $recette = Recette::findOrFail($id);
+    
+        return view('pages.showRec', ['recette' => $recette]);
+    }
+    
     
 }

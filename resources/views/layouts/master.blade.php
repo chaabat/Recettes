@@ -18,6 +18,8 @@
     @yield('updateCat') 
     @yield('updateRec') 
     @yield('searchRec') 
+    @yield('showRec') 
+
 </main>
 
             @include('partials.footer')

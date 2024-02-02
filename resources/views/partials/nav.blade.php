@@ -1,28 +1,26 @@
-<!-- component -->
-<nav class=" bg-[#8b5e34] w-full flex relative justify-between items-center mx-auto px-8 h-20">
-    <!-- logo -->
-    <div class="h-18 w-8">
-        <img {{ asset('photos/logo.jpg') }}  alt="">
 
-    </div>
+<nav class=" bg-[#8b5e34] w-full flex relative justify-between items-center mx-auto px-8 h-20">
+
+   
+    <img src="{{ asset('photos/logo.png') }}" alt="Logo" class="h-[100%]" />
 
    
 
-    <!-- search bar -->
     <div class="hidden sm:block flex-shrink flex-grow-0 justify-start px-2">
-        <div class="inline-block">
-            <form action="/search" method="GET" class="flex items-center border border-gray-300 rounded-lg overflow-hidden">
-                <input type="text" name="results" placeholder="Search Recettes..." class="bg-gray-50 text-gray-900 text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-600 flex-grow" />
-                <button type="submit" class="bg-primary-600 text-white px-4 py-2 hover:bg-primary-700 transition-colors duration-300">Search</button>
+        <div class="inline-block ">
+            <form action="/search" method="GET" class="flex items-center  overflow-hidden">
+                <input type="text" name="results" placeholder="Search Recettes..." class=" bg-[#ffedd8] rounded-xl   px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-600 flex-grow" />
+                <button type="submit" class=" rounded-xl text-black px-4 py-2 hover:bg-primary-700 transition-colors duration-300">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                  </svg>
+                </button>
             </form>
         </div>
     </div>
     
 
 
-    <!-- end search bar -->
-
-    <!-- login -->
     <div class="flex-initial">
       <div class="flex justify-end items-center relative">
        
@@ -76,5 +74,9 @@
         </div>
       </div>
     </div>
-    <!-- end login -->
+  
 </nav>
+
+
+
+

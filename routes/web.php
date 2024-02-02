@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[homeController::class,'index'] );
 
-// Route::get('/updateCat', [CategoriesController::class, 'updatecat']);
 
 
 /********************************CATEGORIES*****************************************/
@@ -56,11 +55,17 @@ Route::post('/recettes',[RecettesController::class,'save'])->name('recettes.save
 Route::get('/updateRec/{recette}/edit',[RecettesController::class,'edit'])->name('recettes.edit');
 Route::put('/updateRec/{recette}/update',[RecettesController::class,'update'])->name('recettes.update');
 
-//delete categories
+//delete recettes
 Route::delete('/recettes/{recette}/delete',[RecettesController::class,'delete'])->name('recettes.delete'); 
-// routes/web.php
+
+//search recettes
 
 Route::get('/search', [RecettesController::class,'search'])->name('recettes.search');
+
+//details recettes
+Route::get('/showRec/{recette}/show', [RecettesController::class,'show'])->name('recettes.show');
+
+
 
 
 

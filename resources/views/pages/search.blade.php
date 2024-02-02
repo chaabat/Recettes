@@ -1,9 +1,30 @@
 @extends('layouts.master')
 @section('searchRec')
 @if ($recettes->isEmpty())
-<p>No results found for "{{ $results }}".</p>
+<!-- component -->
+<div class=" w-full px-16 md:px-0 h-screen flex items-center justify-center">
+    <div class=" border border-gray-200 flex flex-col items-center justify-center px-4 md:px-8 lg:px-24 py-8 rounded-lg shadow-2xl">
+        <p class="text-6xl md:text-7xl lg:text-9xl font-bold tracking-wider text-[#8b5e34]">"{{ $results }}"</p>
+        <p class="text-2xl md:text-3xl lg:text-5xl font-bold tracking-wider text-black mt-4">No results found </p>
+        <a href="recettes" class="flex items-center space-x-2 bg-[#8b5e34] text-gray-100 px-4 py-2 mt-6 rounded transition duration-150" title="Return Home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+            </svg>
+            <span>Return Home</span>
+        </a>
+    </div>
+</div>
 @else
-<h1>Search Results for "{{ $results }}"</h1>
+
+<div class="w-full xl:w-10/12 px-4 mx-auto mt-8">
+    <div class="rounded-t mb-0 px-4 py-3 border-0 bg-[#8b5e34] ">
+        <div class="flex flex-wrap items-center text-white ">
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                <h3 class="font-bold text-base text-blueGray-700">Search Results for "{{ $results }}"</h3>
+            </div>
+        </div>
+    </div>
+
 <div class="flex min-h-screen items-center justify-center flex-wrap">
     @foreach ($recettes as $recette)
         <div class="relative flex w-full max-w-[80%] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mb-8">
